@@ -10,10 +10,36 @@ box.addEventListener("click", function (event) {
     var xCoord = event.clientX - box.getBoundingClientRect().left;
     var yCoord = event.clientY - box.getBoundingClientRect().top;
 
-    addVertex(xCoord, yCoord, graphLength);
-    ++graphLength;
+    if (!findOverlap(xCoord, yCoord) && withinBox(xCoord, yCoord))
+    {
+        addVertex(xCoord, yCoord, graphLength);
+        ++graphLength;
+    }
         
 });
+
+function findOverlap(x, y) {
+
+    const elements = box.querySelectorAll("*");
+
+    for (const element of elements) {
+
+        if('vertex' !== element.getAttribute('class')) continue;
+
+        const xCoord = parseFloat(element.getAttribute('cx'))
+        const yCoord = parseFloat(element.getAttribute('cy'))
+
+        const distance = Math.sqrt((x - xCoord) ** 2 + (y - yCoord) ** 2);
+        if(distance < radius * 2) return true
+    }
+
+    return false;
+}
+
+function withinBox(x, y) {
+    if(y >= radius && x >= radius) return true;
+    return false;
+}
 
 function addVertex(x, y, num)
 {
