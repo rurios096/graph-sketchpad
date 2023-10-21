@@ -27,13 +27,15 @@ svg{
     vertical-align: middle;
     text-align: center;
     height: 55px;
-    width: 50px;
+    width: min-content;
+    min-width: calc(5%);
     line-height: 20px;
     font-size: 40px;
     font-weight: 100;
     border: 4px solid;
     border-color: rgb(164, 164, 164);
     border-radius: 5px;
+    background-color: white;
 }
 #button-container{
     background-color: #ace5a7;
@@ -43,6 +45,13 @@ svg{
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+#button-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    flex: 1;
 }
 #colorLabel{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
