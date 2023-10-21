@@ -16,7 +16,9 @@ svg{
 #graph-container{
     border: 2px solid;
     position: absolute;
-    top: 50%;
+    width: 1000px;
+    height: 550px;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -37,7 +39,22 @@ svg{
     background-color: #ace5a7;
     padding: 10px;
     align-items: center;
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+#colorLabel{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+}
+#colorPicker{
+    width: 30px;
+    height: 30px;
+}
+.vertexLabel{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
 }

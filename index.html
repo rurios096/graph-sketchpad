@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Graph Sketchpad</title>
+    <title>Sketchpad</title>
     <link rel="stylesheet" type="text/css" href="index.css"/>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script defer src="/sketchpad.js"></script>
@@ -13,12 +13,18 @@
     <h1>Graph Sketchpad</h1>
 
     <div id="button-container">
-        <button class="button" id="vButton">v</button>
-        <button class="button" id="eButton"">e</button>
+        <div>
+            <button class="button" id="vButton">v</button>
+            <button class="button" id="eButton"">e</button>
 
+        </div>
+        <div>
+            <label for="colorPicker" id="colorLabel">Select a Color: </label>
+            <input type="color" id="colorPicker" value="#008000"/>
+        </div>
     </div>
 
-    <svg width="800" height="500" id="graph-container"></svg>
+    <svg id="graph-container"></svg>
 
 </body>
 </html>

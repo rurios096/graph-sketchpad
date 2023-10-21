@@ -1,14 +1,20 @@
 var graphLength = 0;
-const radius = 20;
+const radius = 23;
 const adjacencyList = {};
 var vButtonToggle = false;
 var eButtonToggle = false;
+var selectedColor = "#008000";
 
 const svg = d3.select('#graph-container');
 var box = document.getElementById("graph-container");
 var vButtonState = document.getElementById("vButton");
 var eButtonState = document.getElementById("eButton");
+var colorBox = document.getElementById("colorPicker");
 
+colorBox.addEventListener("change", function(event)
+{
+    selectedColor = event.target.value;
+});
 
 box.addEventListener("click", function (event) {
 
@@ -89,7 +95,6 @@ function findOverlap(x, y) {
         const distance = Math.sqrt((x - xCoord) ** 2 + (y - yCoord) ** 2);
         if(distance < radius * 2) return true
     }
-
     return false;
 }
 
@@ -108,11 +113,13 @@ function addVertex(x, y, num)
     .attr('r', radius)
     .attr('class', 'vertex')
     .style("cursor", "pointer")
+    .style("fill", selectedColor);
 
     vertexGroup.append('text')
         .attr('x', x)
-        .attr('y', + y + 5)
+        .attr('y', + y + 7)
         .text('v' + num)
+        .attr('class', 'vertexLabel')
         .attr('text-anchor', 'middle')
         .style("fill", "white")
         .style("cursor", "pointer");
